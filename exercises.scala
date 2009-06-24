@@ -1,5 +1,5 @@
-# scala-exercises/exercises.scala
-# Thomas Rampelberg
+// scala-exercises/exercises.scala
+// Thomas Rampelberg
 
 sealed trait List[+A] {
   override def toString = {
@@ -49,10 +49,16 @@ sealed trait Natural {
     toInt(this).toString
   }
 }
+
 final case object Zero extends Natural
 final case class Succ(c: Natural) extends Natural
 
 object Exercises {
+
+def power(x: Double, y: Int): Double = y match {
+  case 0 => x
+  case _ => x * power(x, y-1)
+}
 
 // Exercise 1
 // Relative Difficulty: 1
@@ -68,7 +74,10 @@ def add(x: Natural, y: Natural): Natural = error("todo")
 // Performance: 1 mark
 // Elegance: 0.5 marks
 // Total: 4
-def sum(is: List[Int]): Int = error("todo")
+def sum(is: List[Int]): Int = is match {
+  case Nil => 0
+  case x :: xs => x + sum(xs)
+}
 
 // Exercise 3
 // Relative Difficulty: 2
@@ -134,3 +143,7 @@ def maximum(is: List[Int]): Int = error("todo")
 // Total: 10
 def reverse[A](as: List[A]): List[A] = error("todo")
 }
+
+val q = List(1, 2, 3, 4)
+val p = exercises.Sum(q)
+println(p)
