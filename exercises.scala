@@ -144,6 +144,3 @@ def maximum(is: List[Int]): Int = error("todo")
 def reverse[A](as: List[A]): List[A] = error("todo")
 }
 
-val q = List(1, 2, 3, 4)
-val p = exercises.Sum(q)
-println(p)
